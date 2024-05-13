@@ -1,0 +1,9 @@
+.formWrapper {display: flex;
+              flex-direction: column;
+              width: 300px;}
+
+.formWrapper label {margin-bottom: 5px;}
+
+.formWrapper input {margin-bottom: 15px; border-radius: 10px;}
+
+.formWrapper button {width: 90px; border-radius: 10px;}

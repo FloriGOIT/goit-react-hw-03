@@ -1,0 +1,8 @@
+
+.listContactsWrap {margin-top: 30px;padding-inline-start: 0px; list-style-type: none;}
+.listContactsWrap li{display: flex; justify-content: space-between; margin-bottom: 10px;}
+.listContactsWrap b {margin-right: 7px; color: darkgreen;}
+
+.listContactsWrap li button {border-radius: 10px;}
+.listContactsWrap li button:hover {background-color: rgb(0, 128, 0, 0.4); border-radius: 10px;  border-color: green;}
+.listContactsWrap li button:focus {background-color: green; color: whitesmoke; border-color: whitesmoke;}
