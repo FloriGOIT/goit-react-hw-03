@@ -11,6 +11,8 @@ export  class PhoneBook extends React.Component
 {
   state = {contacts: [],
            filter: ""}
+
+
   
   addNewContact = ({name, number}) => {function upper1stLetter(string){let stringToArray = string.split(" ");
                                                                         let array1stletterUpper = stringToArray.map((word)=> {return word.charAt(0).toUpperCase() + word.slice(1)});
@@ -26,7 +28,17 @@ export  class PhoneBook extends React.Component
   handleFilterContactList = (inputFilter) => {this.setState({filter: inputFilter});
                                                 console.log(this.state.filter)}                         
   
-  handleDelete = (id) => {this.setState({contacts: this.state.contacts.filter(contact =>contact.id !== id )})}
+  handleDelete = (id) => {this.setState({contacts: this.state.contacts.filter(contact =>contact.id !== id )});}
+
+  componentDidMount(){let mountContacts = localStorage.getItem("localContacts");
+                      let stringMountContacts = JSON.parse(mountContacts);
+                      this.setState({contacts: stringMountContacts})}
+
+
+  componentDidUpdate(){let getContacts = this.state.contacts;
+                       let jsonGetContacts = JSON.stringify(getContacts);
+                       localStorage.setItem("localContacts",jsonGetContacts);}
+
 
   render(){return ( 
           <div className="phonebook">
