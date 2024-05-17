@@ -7,39 +7,36 @@ import {Loader} from "./Loader/Loader.jsx"
 import {Button} from "./Button/Button.jsx"
 import {Modal} from "./Modal/Modal.jsx"
 
-export class ImageSearch extends  React.Component
-{ state = {search: "",
-           site: "",
+export default class ImageSearch extends  React.Component
+{ state = {site: "",
            itemsHits: null,
            error: null,
-           array : [{id:1, name: "Florentina", being: "imi constientizez inteligenta"},
-{id:2, name: "Flori", being: "Imi constientizez frumusetea"},
-{id:3, name: "Florance", being: "Materializez ce-mi propun"},
-{id:4, name: "Draga de mine", being: "Imi constientizez abundenta"},
-{id:5, name: "Minunata creatie", being: "Constientizez lucrul cu inteligenta din mine"}]
-          };
-  
+           numberItems : 0};
 
-   handleSearchInput = (input) => {this.setState({search: input});}
-   handleSubmit = (siteFull) => {this.setState({site: siteFull});}
-   
 
-   componentDidUpdate = (prevProps, prevstate) => 
-    {
-      if(this.state.site !== "" && this.state.site !== prevstate.site)
-        {fetch(this.state.site).then((res)=>{ if(!res.ok){throw new Error("There seems to be an issue. Please verify the validity of the site!") }
+   handleSubmit = (sitePartial) => {this.setState({site: sitePartial});
+                                    this.setState({numberItems: 4});}
+   handleNewImages = () => {this.setState(prevState => ({numberItems: prevState.numberItems + 4 }))}
+
+   componentDidUpdate = (prevProps, prevState) => 
+    { let perPagesite = `${this.state.site}&per_page=${this.state.numberItems}`;
+      console.log(perPagesite);
+      if(this.state.site !== prevState.site || this.state.numberItems !== prevState.numberItems)
+        {fetch(`${perPagesite}`).then((res)=>{ if(!res.ok){throw new Error("There seems to be an issue. Please verify the validity of the site!") }
                                               else{return res.json() }})
-                               .then( (data)=>{this.setState({itemsHits: data.hits, error: null})} )
+                               .then( (data)=>{if(data.hits.length < 1){alert("Please make a valid search!")}
+                                               else{this.setState({itemsHits: data.hits, error: null})}} )
                                .catch((error)=>{this.setState({error: error.message})})
         }
-    }                                   
+    }
 
    render(){return <div className={css.ImageSearchWrapper}>
-                        <Searchbar searchInput={this.handleSearchInput} searcItem={this.handleSubmit}/>
+                        <Searchbar searcItem={this.handleSubmit} numberItems={this.state.numberItems}/>
                         <ImageGallery>
-                            <ImageGalleryItem itemsHits={this.state.itemsHits}/>
+                              <ImageGalleryItem itemsHits={this.state.itemsHits}/>
                         </ImageGallery>
-                        <Loader />  
-                        <Button /> 
+                        {this.state.site!== "" && this.state.itemsHits!== null && <Button numberItems={this.state.numberItems} addNewItems={this.handleNewImages}/> } 
+                       
+                        <Loader />
                         <Modal />
                     </div>}}
