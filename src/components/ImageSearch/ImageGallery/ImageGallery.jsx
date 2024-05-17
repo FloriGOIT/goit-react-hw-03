@@ -1,6 +1,10 @@
+import css from "../ImageSearch.module.css"
 
 
-export function ImageGallery ()
+export function ImageGallery ({children})
 {
-    return <p>ImageGallery</p>
+  return <ul className={css.listComponent}>{children}</ul>
 }
+        
+            
+  

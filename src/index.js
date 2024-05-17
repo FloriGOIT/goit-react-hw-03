@@ -1,13 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { PhoneBook } from 'components/PhoneBook/PhoneBook';
-import { ImageSearch } from 'components/ImageSearch/ImageSearch';
+//import { PhoneBook } from 'components/PhoneBook/PhoneBook';
+//import {ISearch} from "./components/ImageSearch/IS.jsx";
+import {ImageSearch} from 'components/ImageSearch/ImageSearch.jsx';
 
-import './index.css';
+
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <PhoneBook />
+    {/*<PhoneBook />*/}
+    {/*<ISearch />*/}
+
     <ImageSearch />
+    
   </React.StrictMode>
 );
