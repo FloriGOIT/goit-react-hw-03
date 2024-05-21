@@ -1,5 +1,5 @@
 /* Gallery app*/
-.ImageSearchWrapper {border: 1px solid rgb(28, 109, 202); margin: 0px auto;}
+.ImageSearchWrapper {border: 1px solid rgb(28, 109, 202); margin: 0px auto; position: relative;}
 
 /* Gallery app - search bar*/
 .searchbarWrapper { padding:30px 0px; text-align: center;
@@ -38,6 +38,8 @@
 .loadMoreButtonWrapper{text-align: center;}
 .loadMoreButton {background-color: rgb(28, 109, 202); border-radius: 10px; width: 120px; padding: 5px 0px;}
 
-
+.loaderWrapper {position: fixed; text-align: center; background-color: white(15, 15, 15, 0.8); top: 300px; left: 0;
+                width: 100vw; height: 100vh;}
+.loaderWrapper .loader {z-index: 1200;}
 
 .end {height: 50px; background-color: rgb(28, 109, 202); margin-top: 20px; color: rgb(28, 109, 202);}

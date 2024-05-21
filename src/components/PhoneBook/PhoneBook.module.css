@@ -1,0 +1,9 @@
+
+.phonebook {margin: 50px 0px 100px 300px;
+    border: 2px solid rgb(114, 250, 186);
+    border-radius: 10%;
+    display: inline-block;
+    padding: 25px;
+    background-color: rgb(173, 255, 47, 0.2);
+    box-shadow: 1px 4px 4px 2px rgb(100, 156, 121);
+    }

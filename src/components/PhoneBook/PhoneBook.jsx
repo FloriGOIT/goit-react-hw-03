@@ -1,10 +1,9 @@
 import React from "react";
-
+import css from "../PhoneBook/PhoneBook.module.css"
 import {ContactForm} from "./ContactForm/ContactForm.jsx"
 import {Filter} from "./Filter/Filter.jsx"
 import {ContactList} from "./ContactList/ContactList.jsx"
 import { nanoid } from "nanoid";
-
 
 
 export  class PhoneBook extends React.Component 
@@ -41,7 +40,7 @@ export  class PhoneBook extends React.Component
 
 
   render(){return ( 
-          <div className="phonebook">
+          <div className={css.phonebook}>
               <h1> Phonebook </h1>
               <ContactForm onSubmit={this.addNewContact} />
               <h2 style={{marginTop: "50px"}}>Contacts</h2>
