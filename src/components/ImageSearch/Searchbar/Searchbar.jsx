@@ -9,8 +9,9 @@ handleSearchInput = (input) => {this.setState({search: input})}
 handleSubmitInput = (e) => {e.preventDefault();
                             let sitePartial = `https://pixabay.com/api/?key=42799638-b50871d8c9a958480a9d6ba7c&image_type=photo&orientation=horizontal&page=1&q=`;
                             let input = e.currentTarget.elements.input.value;
-                            sitePartial = sitePartial + input;
-                            this.props.searcItem(sitePartial);}
+                            if(input.trim().length > 0){sitePartial = sitePartial + input;
+                                                 this.props.searcItem(sitePartial);}
+                            else{alert("Please make a valid search!")}}
 
 
   render()

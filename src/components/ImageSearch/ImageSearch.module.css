@@ -1,5 +1,6 @@
 /* Gallery app*/
-.ImageSearchWrapper {border: 1px solid rgb(28, 109, 202); margin: 0px auto; position: relative;}
+.ImageSearchWrapper {border: 1px solid rgb(28, 109, 202); margin: 0px auto; position: relative; box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2),
+  0px 3px 3px 0px rgba(14, 228, 25, 0.6), 0px 5px 5px 0px rgba(76, 11, 228, 0.6);}
 
 /* Gallery app - search bar*/
 .searchbarWrapper { padding:30px 0px; text-align: center;
@@ -36,10 +37,15 @@
 
 /* Gallery app - loadButton*/
 .loadMoreButtonWrapper{text-align: center;}
-.loadMoreButton {background-color: rgb(28, 109, 202); border-radius: 10px; width: 120px; padding: 5px 0px;}
+.loadMoreButton {background-color: rgb(28, 109, 202); border-radius: 10px; width: 120px; padding: 5px 0px; margin-bottom: 30px;}
 
+/* Gallery app - Loading status*/
 .loaderWrapper {position: fixed; text-align: center; background-color: white(15, 15, 15, 0.8); top: 300px; left: 0;
                 width: 100vw; height: 100vh;}
-.loaderWrapper .loader {z-index: 1200;}
+.loaderWrapper .loader {z-index: 100;}
 
-.end {height: 50px; background-color: rgb(28, 109, 202); margin-top: 20px; color: rgb(28, 109, 202);}
+/* Gallery app -- Modal*/
+.largeImageWrapper {position: relative; background-color: rgb(128, 128, 128, 0.7); width: 100%; height: 100%; display: flex; 
+  justify-content: center; margin: auto auto; position: fixed; top: 0; left:0; z-index: 100}
+
+.largeImageWrapper img {width: 80%; height: 90%; margin: auto auto; border-radius: 10px;}
