@@ -9,9 +9,9 @@ import { nanoid } from "nanoid";
 
 export  class PhoneBook extends React.Component 
 {
-  state = {contacts: [{id:1, name: "dana alina", number: "9223019270"}],
-           filter: "",
-           isVisible: true}
+  state = {contacts: [], //contacts: [{id:1, name: "dana alina", number: "9223019270"}],
+           filter: "", //isVisible: true
+          }
 
 //functions
   addNewContact = ({name, number}) => {function upper1stLetter(string){let stringToArray = string.split(" ");
@@ -36,16 +36,15 @@ export  class PhoneBook extends React.Component
                        let jsonGetContacts = JSON.stringify(getContacts);
                        localStorage.setItem("localContacts",jsonGetContacts);}
 //JSX
-  render(){const {contacts,filter, isVisible} = this.state;
+  render(){const {contacts,filter} = this.state;  //const {contacts,filter, isVisible} = this.state;
 
-          return ( 
-          isVisible && (<div className={css.phonebook}>
+          return (<div className={css.phonebook}>
                             <button className={css.phonebookRemove} id="closeingElement" onClick={this.phonebookRemove}>❌</button>
                             <h1> Phonebook </h1>
                             <ContactForm onSubmit={this.addNewContact} />
                             <h2 style={{marginTop: "50px"}}>Contacts</h2>
                             <Filter valueFilter={this.handleFilterContactList}/>
                             <ContactList allContacts={contacts} toFilter={filter} onClickDelete={this.handleDelete}/>
-                        </div>)
+                        </div>
 )}};
 
