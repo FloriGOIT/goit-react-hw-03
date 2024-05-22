@@ -43,9 +43,9 @@ export  class PhoneBook extends React.Component
                             <button className={css.phonebookRemove} id="closeingElement" onClick={this.phonebookRemove}>❌</button>
                             <h1> Phonebook </h1>
                             <ContactForm onSubmit={this.addNewContact} />
-                            {this.state.contacts.length > 0 && <h2 style={{marginTop: "50px"}}>Contacts</h2>}
-                            {this.state.contacts.length > 0 && <Filter valueFilter={this.handleFilterContactList}/>}
-                            {this.state.contacts.length > 0 && <ContactList allContacts={contacts} toFilter={filter} onClickDelete={this.handleDelete}/>}
+                            {contacts.length > 0 && <h2 style={{marginTop: "50px"}}>Contacts</h2>}
+                            {contacts.length > 0 && <Filter valueFilter={this.handleFilterContactList}/>}
+                            {contacts.length > 0 && <ContactList allContacts={contacts} toFilter={filter} onClickDelete={this.handleDelete}/>}
                         </div>)
 )}};
 

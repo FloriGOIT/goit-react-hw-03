@@ -1,5 +1,5 @@
 import css from "./ContactList.module.css";
-import PropTypes from "prop-types";
+
 
 
 export function ContactList({allContacts, toFilter, onClickDelete})
@@ -17,4 +17,3 @@ export function ContactList({allContacts, toFilter, onClickDelete})
          </ul>)
 }
 
-ContactList.propTypes = {allContacts:PropTypes.array, toFilter:PropTypes.string, onClickDelete: PropTypes.func}
