@@ -9,7 +9,7 @@ import { nanoid } from "nanoid";
 
 export  class PhoneBook extends React.Component 
 {
-  state = {contacts: [],
+  state = {contacts: "",
            filter: "",
            isVisible: true}
 
@@ -36,15 +36,16 @@ export  class PhoneBook extends React.Component
                        let jsonGetContacts = JSON.stringify(getContacts);
                        localStorage.setItem("localContacts",jsonGetContacts);}
 //JSX
-  render(){const {contacts,filter, isVisible}= this.state;
+  render(){const {contacts,filter, isVisible} = this.state;
+
           return ( 
           isVisible && (<div className={css.phonebook}>
                             <button className={css.phonebookRemove} id="closeingElement" onClick={this.phonebookRemove}>❌</button>
                             <h1> Phonebook </h1>
                             <ContactForm onSubmit={this.addNewContact} />
-                            <h2 style={{marginTop: "50px"}}>Contacts</h2>
-                            <Filter valueFilter={this.handleFilterContactList}/>
-                            <ContactList allContacts={contacts} toFilter={filter} onClickDelete={this.handleDelete}/>
+                            {this.state.contacts.length > 0 && <h2 style={{marginTop: "50px"}}>Contacts</h2>}
+                            {this.state.contacts.length > 0 && <Filter valueFilter={this.handleFilterContactList}/>}
+                            {this.state.contacts.length > 0 && <ContactList allContacts={contacts} toFilter={filter} onClickDelete={this.handleDelete}/>}
                         </div>)
 )}};
 
