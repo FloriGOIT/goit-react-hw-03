@@ -31,4 +31,4 @@ handleSubmitInput = (e) => {e.preventDefault();
 }
 
 
-Searchbar.propTypes = {state: PropTypes.string}
+Searchbar.propTypes = {searcItem: PropTypes.func, numberItems:PropTypes.number}

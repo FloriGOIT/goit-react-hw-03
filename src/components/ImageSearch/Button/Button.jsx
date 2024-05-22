@@ -1,5 +1,5 @@
 import css from "../ImageSearch.module.css"
-
+import PropTypes from "prop-types"
 
 export function Button ({ addNewItems})
 {
@@ -9,3 +9,5 @@ export function Button ({ addNewItems})
                </button>
             </div>)
 }
+
+Button.propTypes = {addNewItems: PropTypes.func}

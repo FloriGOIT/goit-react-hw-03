@@ -1,4 +1,5 @@
 import css from "../ImageSearch.module.css"
+import PropTypes from "prop-types"
 
 export function Modal ({largeImage, closeImg})
 
@@ -9,3 +10,5 @@ export function Modal ({largeImage, closeImg})
                 <img src={largeImage} alt="selectedPhoto"/>
             </div>)
 }
+
+Modal.propTypes = {largeImage: PropTypes.string, closeImg: PropTypes.func}

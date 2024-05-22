@@ -4,7 +4,7 @@ import {ContactForm} from "./ContactForm/ContactForm.jsx"
 import {Filter} from "./Filter/Filter.jsx"
 import {ContactList} from "./ContactList/ContactList.jsx"
 import { nanoid } from "nanoid";
-import PropTypes from "prop-types"
+
 
 
 export  class PhoneBook extends React.Component 
@@ -48,6 +48,3 @@ export  class PhoneBook extends React.Component
                         </div>)
 )}};
 
-
-PhoneBook.propTypes = {contacts: PropTypes.arrayOf(PropTypes.shape({id:PropTypes.string, name: PropTypes.string, number: PropTypes.string})), 
-                      filter: PropTypes.string, isVisible: PropTypes.bool}

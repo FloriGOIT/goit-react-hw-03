@@ -6,7 +6,6 @@ import ImageGalleryItem from "../ImageSearch/ImageGalleryItem/ImageGalleryItem.j
 import {Button} from "./Button/Button.jsx"
 import {Modal} from "./Modal/Modal.jsx"
 import {Loader} from "./Loader/Loader.jsx"
-import PropTypes from "prop-types"
 
 export default class ImageSearch extends  React.Component
 { state = {site: "",
@@ -43,15 +42,9 @@ export default class ImageSearch extends  React.Component
                         </ImageGallery>
                         
                         {site!== "" && itemsHits!== null && statusUploadig === "resolved" 
-                        && <Button numberItems={this.state.numberItems} addNewItems={this.handleNewImages}/> } 
+                        && <Button addNewItems={this.handleNewImages}/> } 
                         {statusUploadig === "pending" && <Loader />}
 
                         {largeImageURL!== "" &&  <Modal largeImage={largeImageURL} closeImg={this.handleClose}/>}
                     </div>}}
 
-ImageSearch.propTypes = 
-{site: PropTypes.string, 
- itemsHits: PropTypes.arrayOf(PropTypes.shape({id: PropTypes.string,  tags : PropTypes.string, 
-                                               webformatURL: PropTypes.string, largeImageURL: PropTypes.string })),
- error: PropTypes.string,
- numberItems: PropTypes.number, statusUploadig: PropTypes.string, largeImageURL:PropTypes.string}          

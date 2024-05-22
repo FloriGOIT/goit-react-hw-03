@@ -1,4 +1,5 @@
 import css from "../ImageSearch.module.css"
+import PropTypes from "prop-types"
 
 export default function ImageGalleryItem({itemsHits, openLargeImage})
 {
@@ -10,3 +11,4 @@ export default function ImageGalleryItem({itemsHits, openLargeImage})
           </>)
 }
 
+ImageGalleryItem.propTypes = {itemsHits: PropTypes.array, openLargeImage:PropTypes.func}

@@ -1,4 +1,5 @@
 import css from "./Filter.module.css";
+import PropTypes from "prop-types"
 
 
 export function Filter({valueFilter})
@@ -9,3 +10,5 @@ export function Filter({valueFilter})
                       <label htmlFor="filterId">Find contacts by name:</label><br/>
                       <input type="text" id="filterId" onChange={handleFilterInput}/>
                    </div>)} 
+
+Filter.propTypes = {valueFilter: PropTypes.func}

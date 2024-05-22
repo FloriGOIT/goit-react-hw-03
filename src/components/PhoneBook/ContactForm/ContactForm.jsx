@@ -33,4 +33,4 @@ export class ContactForm extends React.Component
            </form>)
 }}
 
-ContactForm.propTypes = {name: PropTypes.string, number: PropTypes.string}
+ContactForm.propTypes = {onSubmit: PropTypes.func}
