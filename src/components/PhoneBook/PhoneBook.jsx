@@ -43,7 +43,7 @@ componentDidUpdate(){console.log("component Updated")}
                             <button className={css.phonebookRemove} id="closeingElement" onClick={this.phonebookRemove}>❌</button>
                             <h1> Phonebook </h1>
                             <ContactForm onSubmit={this.addNewContact} />
-                            {contacts.length >0 && <div>
+                            {contacts.length > 0 && <div>
                               <h2 style={{marginTop: "50px"}}>Contacts</h2>
                               <Filter valueFilter={this.handleFilterContactList}/>
                               <ContactList allContacts={contacts} toFilter={filter} onClickDelete={this.handleDelete}/>
