@@ -20,7 +20,8 @@ export default class ImageSearch extends  React.Component
    handleSubmit = (sitePartial) => {if(this.state.site !== sitePartial)this.setState({site: sitePartial, numberItems: 12, statusUploadig: "loading"})};
    handleNewImages = () => {this.setState(prevState => ({numberItems: prevState.numberItems + 12, statusUploadig: "loading" })) };
    handleLargeImage = (largeImage) => {this.setState({largeImageURL: largeImage}); console.log(largeImage)};
-   handleClose = (tagName) => {if(tagName === "DIV"){this.setState({largeImageURL: ""})}}
+   handleClose = (tagName) => {if(tagName === "DIV"){this.setState({largeImageURL: ""})}};
+   
    fetching = () => {let perPagesite = `${this.state.site}&per_page=${this.state.numberItems}`; console.log(perPagesite);
                     fetch(`${perPagesite}`).then((res)=>{ if(!res.ok){throw new Error("There seems to be an issue. Please verify the validity of the site!") }
                                                           else{return res.json() }})
@@ -53,4 +54,4 @@ ImageSearch.propTypes =
  itemsHits: PropTypes.arrayOf(PropTypes.shape({id: PropTypes.string,  tags : PropTypes.string, 
                                                webformatURL: PropTypes.string, largeImageURL: PropTypes.string })),
  error: PropTypes.string,
-  numberItems: PropTypes.number, statusUploadig: PropTypes.string, largeImageURL:PropTypes.string}          
+ numberItems: PropTypes.number, statusUploadig: PropTypes.string, largeImageURL:PropTypes.string}          
