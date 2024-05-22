@@ -5,7 +5,6 @@ import {Filter} from "./Filter/Filter.jsx"
 import {ContactList} from "./ContactList/ContactList.jsx"
 import { nanoid } from "nanoid";
 import PropTypes from "prop-types"
-import { isVisible } from "@testing-library/user-event/dist/utils";
 
 
 export  class PhoneBook extends React.Component 

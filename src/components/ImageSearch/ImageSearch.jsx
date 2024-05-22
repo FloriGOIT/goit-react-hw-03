@@ -17,8 +17,8 @@ export default class ImageSearch extends  React.Component
            largeImageURL: ""};
 
 
-   handleSubmit = (sitePartial) => {if(this.state.site !== sitePartial)this.setState({site: sitePartial, numberItems: 4, statusUploadig: "loading"})};
-   handleNewImages = () => {this.setState(prevState => ({numberItems: prevState.numberItems + 4, statusUploadig: "loading" })) };
+   handleSubmit = (sitePartial) => {if(this.state.site !== sitePartial)this.setState({site: sitePartial, numberItems: 12, statusUploadig: "loading"})};
+   handleNewImages = () => {this.setState(prevState => ({numberItems: prevState.numberItems + 12, statusUploadig: "loading" })) };
    handleLargeImage = (largeImage) => {this.setState({largeImageURL: largeImage}); console.log(largeImage)};
    handleClose = (tagName) => {if(tagName === "DIV"){this.setState({largeImageURL: ""})}}
    fetching = () => {let perPagesite = `${this.state.site}&per_page=${this.state.numberItems}`; console.log(perPagesite);
@@ -29,7 +29,6 @@ export default class ImageSearch extends  React.Component
                                                                let arrayNewData = newdata.map(({id, tags, webformatURL, largeImageURL}) => {return {id, tags, webformatURL, largeImageURL}}); 
                                                                this.setState({itemsHits: arrayNewData, error: null, statusUploadig: "resolved"})}} )
                                            .catch((error)=>{this.setState({error: error.message, statusUploadig: "rejected"})})}
-
 
    componentDidMount = () => {this.setState({statusUploadig: "resolved"})}
    componentDidUpdate = (prevProps, prevState) => 
@@ -49,5 +48,9 @@ export default class ImageSearch extends  React.Component
                         {largeImageURL!== "" &&  <Modal largeImage={largeImageURL} closeImg={this.handleClose}/>}
                     </div>}}
 
-ImageSearch.propTypes = {site: PropTypes.string, itemsHits: PropTypes.array, error: PropTypes.string,
-                         numberItems: PropTypes.number, statusUploadig: PropTypes.string, largeImageURL:PropTypes.string}          
+ImageSearch.propTypes = 
+{site: PropTypes.string, 
+ itemsHits: PropTypes.arrayOf(PropTypes.shape({id: PropTypes.string,  tags : PropTypes.string, 
+                                               webformatURL: PropTypes.string, largeImageURL: PropTypes.string })),
+ error: PropTypes.string,
+  numberItems: PropTypes.number, statusUploadig: PropTypes.string, largeImageURL:PropTypes.string}          
