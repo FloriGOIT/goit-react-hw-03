@@ -3,9 +3,9 @@ import css from "./ContactList.module.css";
 
 
 export function ContactList({allContacts, toFilter, onClickDelete})
-{  
+{ 
    const filteredList =  allContacts.filter(contact => contact.name.toLowerCase().includes(toFilter.toLowerCase()))
-         const contactsToDisplay = (toFilter === "") ? allContacts : filteredList;
+   const contactsToDisplay = (toFilter === "") ? allContacts : filteredList;
 
   return (<ul className={css.listContactsWrap}>
                {contactsToDisplay.map((contact, index) => (<li key={contact.id}>

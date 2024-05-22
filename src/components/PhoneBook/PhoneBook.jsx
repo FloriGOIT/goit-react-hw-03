@@ -23,12 +23,17 @@ export  class PhoneBook extends React.Component
                                        else{let newContact = {id: nanoid(), name: costumizedName, number: number};
                                        let updatedContactList = [...this.state.contacts];
                                        updatedContactList.push(newContact);
-                                       this.setState({contacts: updatedContactList});}}
+                                       this.setState({contacts: updatedContactList});
+                                       let jsonUpdatedContactList = JSON.stringify(updatedContactList);
+                                       localStorage.setItem("localContacts",jsonUpdatedContactList)}}
   handleFilterContactList = (inputFilter) => {this.setState({filter: inputFilter}); console.log(this.state.filter)}                         
   handleDelete = (id) => {this.setState({contacts: this.state.contacts.filter(contact =>contact.id !== id )});}
   phonebookRemove = (e) => {let tag = e.target.id; console.log(tag); if(tag === "closeingElement"){this.setState({isVisible: false})}}
 
 //lifecycle
+
+componentDidMount(){console.log("component mounted")}
+componentDidUpdate(){console.log("component Updated")}
  
 //JSX
   render(){const {contacts,filter, isVisible} = this.state;
@@ -38,9 +43,11 @@ export  class PhoneBook extends React.Component
                             <button className={css.phonebookRemove} id="closeingElement" onClick={this.phonebookRemove}>❌</button>
                             <h1> Phonebook </h1>
                             <ContactForm onSubmit={this.addNewContact} />
-                            <h2 style={{marginTop: "50px"}}>Contacts</h2>
-                            <Filter valueFilter={this.handleFilterContactList}/>
-                            <ContactList allContacts={contacts} toFilter={filter} onClickDelete={this.handleDelete}/>
+                            {contacts.length >0 && <div>
+                              <h2 style={{marginTop: "50px"}}>Contacts</h2>
+                              <Filter valueFilter={this.handleFilterContactList}/>
+                              <ContactList allContacts={contacts} toFilter={filter} onClickDelete={this.handleDelete}/>
+                            </div>}
                         </div>)
 )}};
 
