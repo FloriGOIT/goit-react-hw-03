@@ -1,5 +1,6 @@
 import css from "../ImageSearch.module.css"
 import React from "react";
+import PropTypes from "prop-types"
 
 export class  Searchbar extends React.Component
 { state = {search: ""}
@@ -14,8 +15,7 @@ handleSubmitInput = (e) => {e.preventDefault();
                             else{alert("Please make a valid search!")}}
 
 
-  render()
-  {
+  render(){
     return (
       <header className={css.searchbarWrapper}>
         <form onSubmit={this.handleSubmitInput}>
@@ -27,8 +27,8 @@ handleSubmitInput = (e) => {e.preventDefault();
                   placeholder="Search images and photos" onChange={this.handleSearchInput}/>
         </form>
       </header>
-    )
+    )}
 }
-  
-                                    
-  }
+
+
+Searchbar.propTypes = {state: PropTypes.string}

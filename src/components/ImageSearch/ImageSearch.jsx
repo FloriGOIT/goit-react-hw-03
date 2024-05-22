@@ -6,6 +6,7 @@ import ImageGalleryItem from "../ImageSearch/ImageGalleryItem/ImageGalleryItem.j
 import {Button} from "./Button/Button.jsx"
 import {Modal} from "./Modal/Modal.jsx"
 import {Loader} from "./Loader/Loader.jsx"
+import PropTypes from "prop-types"
 
 export default class ImageSearch extends  React.Component
 { state = {site: "",
@@ -47,3 +48,6 @@ export default class ImageSearch extends  React.Component
 
                         {largeImageURL!== "" &&  <Modal largeImage={largeImageURL} closeImg={this.handleClose}/>}
                     </div>}}
+
+ImageSearch.propTypes = {site: PropTypes.string, itemsHits: PropTypes.array, error: PropTypes.string,
+                         numberItems: PropTypes.number, statusUploadig: PropTypes.string, largeImageURL:PropTypes.string}          
