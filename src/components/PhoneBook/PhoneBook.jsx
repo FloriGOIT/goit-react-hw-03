@@ -51,7 +51,7 @@ componentDidMount() {
                             <button className={css.phonebookRemove} id="closeingElement" onClick={this.phonebookRemove}>❌</button>
                             <h1> Phonebook </h1>
                             <ContactForm onSubmit={this.addNewContact} />
-                            {contacts !== "ana" && 
+                            {contacts.length > 0 && 
                             <div>
                               <h2 style={{marginTop: "50px"}}>Contacts</h2>
                               <Filter valueFilter={this.handleFilterContactList}/>
