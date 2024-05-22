@@ -3,8 +3,8 @@ import css from "./ContactList.module.css";
 
 
 export function ContactList({allContacts, toFilter, onClickDelete})
-{  
-   if(allContacts.length === "0"){ return <p>No contacts available.</p>}
+{  let array = [{id: 132111}]
+   if(allContacts !== array){ return <p>No contacts available.</p>}
    else {const filteredList =  allContacts.filter(contact => contact.name.toLowerCase().includes(toFilter.toLowerCase()))
          const contactsToDisplay = (toFilter === "") ? allContacts : filteredList;
 

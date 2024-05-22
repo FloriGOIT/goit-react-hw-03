@@ -9,7 +9,7 @@ import { nanoid } from "nanoid";
 
 export  class PhoneBook extends React.Component 
 {
-  state = {contacts: [],
+  state = {contacts: [{id:132111}],
            filter: "",
            isVisible: true}
 
