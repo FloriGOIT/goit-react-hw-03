@@ -44,7 +44,7 @@ export  class PhoneBook extends React.Component
                             <ContactForm onSubmit={this.addNewContact} />
                             <h2 style={{marginTop: "50px"}}>Contacts</h2>
                             <Filter valueFilter={this.handleFilterContactList}/>
-                            {contacts.length !== 0 && <ContactList allContacts={contacts} toFilter={filter} onClickDelete={this.handleDelete}/>}
+                            <ContactList allContacts={contacts} toFilter={filter} onClickDelete={this.handleDelete}/>
                         </div>)
 )}};
 
