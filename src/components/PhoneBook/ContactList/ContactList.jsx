@@ -2,7 +2,7 @@ import css from "./ContactList.module.css"
 
 
 export function ContactList({allContacts, toFilter, onClickDelete})
-{ let filteredList = allContacts.filter(contact => contact.name.toLowerCase().includes(toFilter.toLowerCase()))
+{ const filteredList = allContacts.filter(contact => contact.name.toLowerCase().includes(toFilter.toLowerCase()))
   
     return (<ul  className={css.listContactsWrap}>
             {toFilter === "" && allContacts.map((contact, index) => <li key={contact.id}>
