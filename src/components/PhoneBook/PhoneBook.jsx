@@ -29,12 +29,7 @@ export  class PhoneBook extends React.Component
   phonebookRemove = (e) => {let tag = e.target.id; console.log(tag); if(tag === "closeingElement"){this.setState({isVisible: false})}}
 
 //lifecycle
-  componentDidMount(){let mountContacts = localStorage.getItem("localContacts");
-                      let stringMountContacts = JSON.parse(mountContacts);
-                      this.setState({contacts: stringMountContacts})}
-  componentDidUpdate(){let getContacts = this.state.contacts;
-                       let jsonGetContacts = JSON.stringify(getContacts);
-                       localStorage.setItem("localContacts",jsonGetContacts);}
+ 
 //JSX
   render(){const {contacts,filter, isVisible} = this.state;
 
