@@ -26,27 +26,36 @@ export  class PhoneBook extends React.Component
                                        this.setState({contacts: updatedContactList});
                                        let jsonUpdatedContactList = JSON.stringify(updatedContactList);
                                        localStorage.setItem("localContacts",jsonUpdatedContactList)}}
-  handleFilterContactList = (inputFilter) => {this.setState({filter: inputFilter}); console.log(this.state.filter)}                         
-  handleDelete = (id) => {this.setState({contacts: this.state.contacts.filter(contact =>contact.id !== id )});}
+  handleFilterContactList = (inputFilter) => {this.setState({filter: inputFilter}); console.log(this.state.filter); }                         
+  handleDelete = (id) => {let x = this.state.contacts.filter(contact => contact.id !== id );
+    console.log(x)
+                          this.setState({contacts: x}); console.log("click"); 
+                          let getContacts = x;
+                          let jsonGetContacts = JSON.stringify(getContacts);
+                          localStorage.setItem("localContacts",jsonGetContacts);}
   phonebookRemove = (e) => {let tag = e.target.id; console.log(tag); if(tag === "closeingElement"){this.setState({isVisible: false})}}
-
+  
 //lifecycle
+componentDidMount() {
+  const storedContacts = localStorage.getItem('localContacts');
+  if (storedContacts) {
+    this.setState({ contacts: JSON.parse(storedContacts) });
+  }
+}
 
-componentDidMount(){console.log("component mounted")}
-componentDidUpdate(){console.log("component Updated")}
- 
 //JSX
-  render(){const {contacts,filter, isVisible} = this.state;
+  render(){const {contacts, filter, isVisible} = this.state;
 
           return ( 
           isVisible && (<div className={css.phonebook}>
                             <button className={css.phonebookRemove} id="closeingElement" onClick={this.phonebookRemove}>❌</button>
                             <h1> Phonebook </h1>
                             <ContactForm onSubmit={this.addNewContact} />
-                            {contacts.length > 0 && <div>
+                            {contacts !== "ana" && 
+                            <div>
                               <h2 style={{marginTop: "50px"}}>Contacts</h2>
                               <Filter valueFilter={this.handleFilterContactList}/>
-                              <ContactList allContacts={contacts} toFilter={filter} onClickDelete={this.handleDelete}/>
+                              <ContactList addLocal={this.addLocalItems} toFilter={filter} onClickDelete={this.handleDelete}/>
                             </div>}
                         </div>)
 )}};
