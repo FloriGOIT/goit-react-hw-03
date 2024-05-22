@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 
 export function ContactList({allContacts, toFilter, onClickDelete})
-{ const filteredList = () => {allContacts.filter(contact => contact.name.toLowerCase().includes(toFilter.toLowerCase()))};
+{ const filteredList = allContacts.filter(contact => contact.name.toLowerCase().includes(toFilter.toLowerCase()));
   
     return (<ul  className={css.listContactsWrap}>
             {toFilter === "" && allContacts.map((contact, index) => <li key={contact.id}>
