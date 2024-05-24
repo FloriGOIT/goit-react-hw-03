@@ -1,7 +1,7 @@
 import css from "../ImageSearch.module.css"
 import PropTypes from "prop-types"
 
-export default function ImageGalleryItem({itemsHits, openLargeImage})
+export default function ImageGalleryItem({itemsHits, openLargeImage, pageNumber})
 {
   return (<>
            {itemsHits !== null && itemsHits.map( (elem) => <li className={css.galleryItem} key={elem.id} onClick = {() => openLargeImage(elem.largeImageURL)}>

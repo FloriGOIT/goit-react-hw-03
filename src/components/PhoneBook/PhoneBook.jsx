@@ -55,7 +55,7 @@ componentDidMount() {
                             <div>
                               <h2 style={{marginTop: "50px"}}>Contacts</h2>
                               <Filter valueFilter={this.handleFilterContactList}/>
-                              <ContactList addLocal={this.addLocalItems} toFilter={filter} onClickDelete={this.handleDelete}/>
+                              <ContactList toFilter={filter} onClickDelete={this.handleDelete}/>
                             </div>}
                         </div>)
 )}};
