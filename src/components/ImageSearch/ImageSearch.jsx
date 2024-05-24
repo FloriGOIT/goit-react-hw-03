@@ -35,11 +35,11 @@ export default class ImageSearch extends  React.Component
    componentDidUpdate = (prevProps, prevState) => 
     {if(this.state.site !== prevState.site || this.state.pageNumber !== prevState.pageNumber){this.setState({statusUploadig: "pending"}); this.fetching() };}
     
-   render(){const {itemsHits, statusUploadig, site, largeImageURL,pageNumber} = this.state
+   render(){const {itemsHits, statusUploadig, site, largeImageURL} = this.state
              return <div className={css.ImageSearchWrapper}>
-                        <Searchbar searcItem={this.handleSubmit} pageNumber={this.state.pageNumber}/>
+                        <Searchbar searcItem={this.handleSubmit} />
                         <ImageGallery>
-                              <ImageGalleryItem itemsHits={itemsHits} pageNumber={pageNumber} openLargeImage={this.handleLargeImage}/>
+                              <ImageGalleryItem itemsHits={itemsHits} openLargeImage={this.handleLargeImage}/>
                         </ImageGallery>
                         
                         {site!== "" && itemsHits!== null && statusUploadig === "resolved" 
